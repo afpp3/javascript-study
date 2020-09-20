@@ -9,13 +9,13 @@ console.log(imageTopDistance);
 function somaLarguraImagem() {
   const imagens = document.querySelectorAll("img");
   let soma = 0;
-  imagens.forEach((item) => {
-    soma += item.offsetWidth;
+  imagens.forEach((imagem) => {
+    soma += imagem.offsetWidth;
   });
   console.log(soma);
 }
 
-window.onload = function () {
+window.onload = () => {
   somaLarguraImagem();
 };
 
@@ -24,13 +24,13 @@ window.onload = function () {
 // com o dedo. (48px/48px de acordo com o google)
 const links = document.querySelectorAll("a");
 
-links.forEach((item) => {
-  const linkWidth = item.offsetWidth;
-  const linkHeight = item.offsetHeight;
+links.forEach((link) => {
+  const linkWidth = link.offsetWidth;
+  const linkHeight = link.offsetHeight;
   if (linkWidth >= 48 && linkHeight >= 48) {
-    console.log(item, "Possui boa acessibilidade");
+    console.log(link, "Possui boa acessibilidade");
   } else {
-    console.log(item, "Não possui boa acessibilidade");
+    console.log(link, "Não possui boa acessibilidade");
   }
 });
 
