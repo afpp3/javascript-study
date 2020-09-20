@@ -1,51 +1,20 @@
-// Quando o usuário clicar nos links internos do site,
-// adicione a classe ativo ao item clicado e remova dos
-// demais itens caso eles possuam a mesma. Previna
-// o comportamento padrão desses links
+// Duplique o menu e adicione ele em copy
+const menu = document.querySelector(".menu");
+const menuCopy = menu.cloneNode(true);
+const copy = document.querySelector(".copy");
 
-const linksInternos = document.querySelectorAll('a[href^="#"]');
+copy.appendChild(menuCopy);
 
-function activeLink(event) {
-  event.preventDefault();
-  linksInternos.forEach((link) => {
-    link.classList.remove("ativo");
-  });
-  event.currentTarget.classList.add("ativo");
-}
+// Selecione o primeiro DT da dl de Faq
+const firstDT = document.querySelector(".faq dt:first-child");
+console.log(firstDT);
 
-linksInternos.forEach((link) => {
-  link.addEventListener("click", activeLink);
-});
+// Selecione o DD referente ao primeiro DT
+const firstDD = firstDT.nextElementSibling;
+console.log(firstDD);
 
-// Selecione todos os elementos do site começando a partir do body,
-// ao clique mostre exatamente quais elementos estão sendo clicados
-const bodyElements = document.querySelector("body");
+// Substitua o conteúdo html de .faq pelo de .animais
+const faq = document.querySelector(".faq");
+const animais = document.querySelector(".animais");
 
-function showClickedElement(event) {
-  console.log(event.target);
-  //Retorna o texto do elemento clicado
-  console.log(event.target.innerText);
-}
-bodyElements.addEventListener("click", showClickedElement);
-
-// Utilizando o código anterior, ao invés de mostrar no console,
-// remova o elemento que está sendo clicado, o método remove() remove um elemento
-
-const bodyElements2 = document.querySelector("body");
-
-function removeClickedElement(event) {
-  event.target.remove();
-}
-
-bodyElements2.addEventListener("click", removeClickedElement);
-
-// Se o usuário clicar na tecla (t), aumente todo o texto do site.
-
-// adiciona uma classe texto-maior no CSS que aumenta a % do font-size
-function handleKeyboard(event) {
-  if (event.key === "t") {
-    document.documentElement.classList.toggle("texto-maior");
-  }
-}
-
-window.addEventListener("keydown", handleKeyboard);
+faq.innerHTML = animais.innerHTML;

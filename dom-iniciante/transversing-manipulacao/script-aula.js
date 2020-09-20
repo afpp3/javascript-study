@@ -1,31 +1,23 @@
+const h1 = document.querySelector("h1");
 const animaisLista = document.querySelector(".animais-lista");
-console.log(animaisLista);
 
-function callbackLista(event) {
-  console.log(event.currentTarget);
-  console.log(event.target);
-  console.log(event.type);
-}
+// Exibe o conteúdo dentro do elemento
+console.log(h1.innerHTML);
+// Exibe o conteúdo começando por fora do elemento
+console.log(h1.outerHTML);
 
-// animaisLista.addEventListener("click", callbackLista);
+// innerHTML vai adicionar dentro do conteúdo selecionado
+h1.innerHTML = "<p>Novo titulo</p>";
 
-const linkExterno = document.querySelector('a[href^="http"]');
+//Já o outerHTML irá substituir o elemento pelo novo
+h1.outerHTML = "<p>Novo titulo</p>";
 
-// Previne o comportamento padrão do evento no browser. No caso de um link externo, por exemplo, irá previnir que o link seja ativado
-function handleLinkExterno(event) {
-  event.preventDefault();
-  console.log(event);
-}
+console.log(animaisLista.innerHTML);
 
-linkExterno.addEventListener("click", handleLinkExterno);
+const animais = document.querySelector(".animais");
 
-const images = document.querySelectorAll("img");
+const novoH1 = document.createElement("h1");
+novoH1.innerText = "Novo Título";
+novoH1.classList.add("titulo");
 
-function imgSrc(event) {
-  const src = event.currentTarget.getAttribute("src");
-  console.log(event.target);
-}
-
-images.forEach((imagem) => {
-  imagem.addEventListener("click", imgSrc);
-});
+animais.appendChild(novoH1);
