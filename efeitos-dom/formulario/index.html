@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      label {
+        display: block;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      form {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.5rem;
+        border: 2px solid #000;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      textarea {
+        height: 150px;
+      }
+    </style>
+
+    <form action="" name="contato" id="contato">
+      <label for="user">Usuario</label>
+      <input type="text" name="user" id="user" />
+      <label for="senha">Senha</label>
+      <input type="text " name="senha" id="senha" />
+      <label for="msg">Mensagem</label>
+      <textarea name="msg" id="msg"></textarea>
+    </form>
+    <span class="texto"></span>
+
+    <script>
+      const contato = document.querySelector("#contato");
+      const texto = document.querySelector(".texto");
+
+      contato.addEventListener("keyup", handleKeyUp);
+
+      function handleKeyUp(event) {
+        console.log(event.target);
+        texto.innerText = event.target.value;
+      }
+    </script>
+  </body>
+</html>

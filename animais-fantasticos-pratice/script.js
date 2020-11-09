@@ -1,4 +1,5 @@
 function initTabNav() {
+
   const animals = document.querySelectorAll('.js-tabmenu li')
   const animalsDescription = document.querySelectorAll('.js-tabcontent section')
 
@@ -63,6 +64,30 @@ function initAccordion() {
 
 }
 
+function initScrollAnimation() {
+  const sections = document.querySelectorAll('.js-scroll')
+
+  if (sections.length) {
+    const windowMetade = window.innerHeight * 0.6
+
+    window.addEventListener('scroll', activeScrollAnimation)
+
+    function activeScrollAnimation() {
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top
+        const halfScrollView = (top - windowMetade) < 0
+        if (halfScrollView) {
+          section.classList.add('ativo')
+        }
+        // console.log(top)
+      })
+    }
+    activeScrollAnimation()
+  }
+}
+
 initTabNav()
 activeScroll()
 initAccordion()
+initScrollAnimation()
+
