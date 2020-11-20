@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  background: #ccc;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+  margin-top: 1rem;
+}
+
+input {
+  display: block;
+}
+
+#width,
+#height {
+  cursor: pointer;
+}
+
+.button-creator {
+  display: grid;
+  gap: 30px;
+  padding: 30px;
+  grid-template-columns: 200px 1fr;
+}
+
+#controles {
+  font-family: 'IBM Plex Mono'monospace;
+  font-size: .875rem;
+  background: #eee;
+  padding: 1rem;
+  border-radius: 4px;
+  box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 1);
+}
+
+.code {
+  font-family: 'IBM Plex Mono'monospace;
+  color: #fff;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  border-radius: 0.3em;
+}
+
+.code span {
+  display: block;
+  margin-bottom: .5rem;
+}
+
+:not(pre)>code.language-css,
+pre.language-css {
+  background: #272822;
+  max-width: 480px;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #a6e22e;
+}

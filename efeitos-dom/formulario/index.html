@@ -47,13 +47,13 @@
 
     <script>
       const contato = document.querySelector("#contato");
-      const texto = document.querySelector(".texto");
+      const dados = {};
 
-      contato.addEventListener("keyup", handleKeyUp);
+      contato.addEventListener("change", handleChange);
 
-      function handleKeyUp(event) {
-        console.log(event.target);
-        texto.innerText = event.target.value;
+      function handleChange(event) {
+        dados[event.target.name] = event.target.value;
+        console.log(dados);
       }
     </script>
   </body>
